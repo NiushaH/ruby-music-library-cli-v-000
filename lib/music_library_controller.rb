@@ -41,12 +41,23 @@ class MusicLibraryController
     end
   end
 
+#   def song_data 
+#     look_at_all_songs_in_CLI = Song.all
+#     alphabetized_songs = look_at_all_songs_in_CLI.sort! { |a, b| a.name <=> b.name }
+#     cleaned_up_CLI_song_strings = alphabetized_songs.uniq
+# binding.pry
+    
+#     music_data = Hash[:original_string, :artist_name, :song_name, :genre_name].zip(cleaned_up_CLI_song_strings.split(([a-zA-Z]+)[ ]*([a-zA-Z]+)))]
+    
+#   end   
+
   def list_songs
     look_at_all_songs_in_CLI = Song.all
     alphabetized_songs = look_at_all_songs_in_CLI.sort! { |a, b| a.name <=> b.name }
     remove_duplicates = alphabetized_songs.uniq
 
     counter = 0
+    
     remove_duplicates.each do |each_song|
       puts "#{counter += 1}. #{each_song.artist.name} - #{each_song.name} - #{each_song.genre.name}"
     end
